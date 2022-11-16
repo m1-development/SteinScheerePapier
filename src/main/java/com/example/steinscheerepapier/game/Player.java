@@ -1,4 +1,4 @@
-package com.example.steinscheerepapier.gamer;
+package com.example.steinscheerepapier.game;
 
 import java.util.Random;
 

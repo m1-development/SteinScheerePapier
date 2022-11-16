@@ -1,4 +1,4 @@
-package com.example.steinscheerepapier.gamer;
+package com.example.steinscheerepapier.game;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
