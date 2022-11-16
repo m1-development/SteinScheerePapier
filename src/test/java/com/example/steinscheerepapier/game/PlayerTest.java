@@ -9,6 +9,7 @@ import static org.mockito.Mockito.spy;
 
 import java.util.stream.Stream;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -18,10 +19,16 @@ import com.example.steinscheerepapier.common.Symbol;
 
 class PlayerTest {
 
+   private static Player player = null;
+
+   @BeforeEach
+   void setUp() {
+      player = spy(new Player());
+   }
+   
    @Test
    void getConstantPaperSymbolShouldReturnConstantPaperSymbol() {
       // given
-      Player player = new Player();
 
       // when
       Symbol symbol = player.getConstantPaperSymbol();
@@ -33,7 +40,6 @@ class PlayerTest {
    @ParameterizedTest
    @MethodSource("getValuePairs")
    void getRandomSymbolShouldReturnCorrectSymbolForIntValue(int value, Symbol expectedSymbol) {
-      Player player = spy(new Player());
       doReturn(value).when(player).getRandomIntNumber(anyInt(), anyInt());
 
       // when
@@ -54,12 +60,10 @@ class PlayerTest {
    @Test()
    void getRandomIntNumberShouldThrowExceptionForValue3() {
       // given
-      Player player = spy(new Player());
       doReturn(3).when(player).getRandomIntNumber(anyInt(), anyInt());
 
       // when
-      assertThrows(ArrayIndexOutOfBoundsException.class, () -> player.getRandomSymbol());
-
       // then
+      assertThrows(ArrayIndexOutOfBoundsException.class, () -> player.getRandomSymbol());
    }
 }
