@@ -11,7 +11,7 @@ public class Player {
    }
 
    public int getRandomIntNumber(int min, int max) {
-      return new Random().ints(min, max)
+      return new Random().ints(min, max + 1)
             .findFirst()
             .orElseThrow();
    }
