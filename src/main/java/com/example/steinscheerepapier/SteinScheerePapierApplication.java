@@ -6,6 +6,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.example.steinscheerepapier.game.Game;
+
 @SpringBootApplication
 public class SteinScheerePapierApplication implements CommandLineRunner {
 
@@ -26,5 +28,8 @@ public class SteinScheerePapierApplication implements CommandLineRunner {
        * - Das Ergebnis wird am Ende aller Runden auf der Console ausgegeben
        */
       LOG.info("Running game 'stone scissor paper'");
+      Game game = new Game();
+      game.play();
+      LOG.info(String.format("Results: Winner A: %s, Tied: %s, Winner B: %s", game.getWinnerA(), game.getTied(), game.getWinnerB()));
    }
 }
